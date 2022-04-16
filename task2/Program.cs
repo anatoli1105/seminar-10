@@ -10,20 +10,9 @@ int Promt(string messege)
     return N;
 }
 int Number1 = Promt("от "), Number2 = Promt("до ");
-if (Number1>Number2)
-{
-    Console.Write($"нет решения");
-    return;
-}
-
 int SumNumbers(int Number1,int Number2)
 {
-int sum=0;
-   for(int i =Number1; i<=Number2;i++)
-    {
-        sum +=Number1;
-      Number1++;
-    }
-    return sum;
+   if(Number2 == Number1) return Number1;
+   else return Number2 + SumNumbers(Number1,Number2-1);
 }
-Console.Write($"сумма чисел равна-> {SumNumbers(Number1,Number2)}");
+Console.Write($"сумма чисел равна :{SumNumbers(Number1,Number2)}");
